@@ -6,17 +6,53 @@
     </head>
     <body>
         <style>
-
+            html, body{
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                background-color:rgb(212, 237, 245);
+            }
+            body{
+                margin: 0 auto;
+                color:black;
+                width: 300px;
+            }
+            #mainMenu{
+                border: 2px solid darkblue;
+                border-radius: 10px; 
+                background: linear-gradient(184deg, rgba(0,0,0,0.4598039044719451) 0%, rgba(0,212,255,0) 48%); 
+                padding: 10px;
+            }
+            h4{
+                text-align: center;
+                font-size:medium;
+            }
+            #generatedPassword{
+                border:1px solid black;
+                height: 17px;
+                width:150px;
+                display:inline-block;
+            }
+            p label{
+                float: left;
+            }
+            #buttonContainer{
+                margin: 10px;
+                text-align: center;
+            }
+        
         </style>
-        <h3>Gerador de Senhas Fortes</h3>
+        <h2>Gerador de Senhas Fortes</h2>
         <div id="mainMenu">
             <h4>Opções</h4>
-            <label for="charNumber">Número de caracteres</label>
+            <label for="charNumber">Número de caracteres: </label>
             <input id="charNumber" type="number"><br>
             <input id="includeCaps" type="checkbox"> Incluir letras maiúsculas <br>
             <input id="includeNumber" type="checkbox"> Incluir numeros<br>
             <input id="includeSpecialChars" type="checkbox"> Incluir caracteres especiais<br>
-            <p>Senha gerada: <div id="generatedPassword"></div></p>
+            <div id="buttonContainer"><button id="generatePassword">Gerar</button></div>
+            <p>
+                <label for="generatedPassword">Senha gerada:</label> 
+                <div id="generatedPassword"></div>
+            </p>
         </div>
         <script>
 
