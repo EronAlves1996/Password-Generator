@@ -55,6 +55,16 @@
             </p>
         </div>
         <script>
+            const button1 = document.getElementById("generatePassword");
+            const displayer = document.getElementById("generatedPassword");
+            button1.addEventListener("click", function (){
+                let passLength = (document.getElementById("charNumber").value);
+                let passArray = [];
+                for(let i = 0;i<passLength;i++){
+                    passArray.push(String.fromCharCode((Math.floor(Math.random()*(123-97)))+97));
+                }
+                displayer.innerHTML = passArray.join("");
+            })
 
         </script>
     </body>
