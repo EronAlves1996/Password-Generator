@@ -1,10 +1,14 @@
 <!doctype HTML>
 <html>
+    <!--Cabeçalho do website-->
+
     <head>
         <title>Gerador de Senha Fortes</title>
         <meta charset="UTF-8">
     </head>
     <body>
+
+        <!--Folha de estilos do website-->
         <style>
             html, body{
                 font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -18,7 +22,10 @@
             #mainMenu{
                 border: 2px solid darkblue;
                 border-radius: 10px; 
-                background: linear-gradient(184deg, rgba(0,0,0,0.4598039044719451) 0%, rgba(0,212,255,0) 48%); 
+
+                /*gradiente para dar um leve "efeito" 3D*/
+                background: linear-gradient(184deg, rgba(0,0,0,0.4598039044719451) 0%, rgba(0,212,255,0) 48%);
+
                 padding: 10px;
             }
             h4{
@@ -40,6 +47,8 @@
             }
         
         </style>
+
+        <!-- Conteúdo do documento -->
         <h2>Gerador de Senhas Fortes</h2>
         <div id="mainMenu">
             <h4>Opções</h4>
@@ -54,13 +63,21 @@
                 <div id="generatedPassword"></div>
             </p>
         </div>
+
+        <!--Parte de processamento do documento  -->
         <script>
             const button1 = document.getElementById("generatePassword");
             const displayer = document.getElementById("generatedPassword");
+
+            /*Constantes acima são globais, a partir daqui é o processamento que é
+            feito totalmente a partir do momento que aperta o botão "gerar*/
             button1.addEventListener("click", function (){
                 let passLength = (document.getElementById("charNumber").value);
                 let passArray = [];
                 for(let i = 0;i<passLength;i++){
+
+                    /*Verificar se as caixas de opções de inclusão estão marcadas
+                    para incluir caracteres de outros tipos */
                     while(true)
                     {
                         var randomchar = Math.floor(Math.random()*(127-33))+33;
@@ -85,13 +102,23 @@
                             break;
                         }
                     }
+
+                    /*Como os caracteres são passadas para um array pelo código
+                    UTF-8, verifica-se se há um "<" para que seja substituido 
+                    por uma entidade para não ser interpretado pelo navegador*/
+
                     if (randomchar===60)
                     {
                         passArray.push("&lt;");
-                    } else {
+                    }
+                    /*Tranforma os códigos em seus respectivos caracteres e inclui
+                    no array*/
+
+                    else {
                         passArray.push(String.fromCharCode(randomchar));
                     }
                 }
+                /*Junta os caracteres da senha em um array para mostrar na caixa final*/
                 displayer.innerHTML = passArray.join("");
             })
 
